@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 export default function Starter() {
   return (
-    <div>Starter</div>
+    <div className=''>
+ Starter
+    </div>
   )
 }
