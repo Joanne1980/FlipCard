@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Starter from "./pages/Starter";
 import Game from "./pages/Game";
