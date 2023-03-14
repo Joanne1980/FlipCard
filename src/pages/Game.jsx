@@ -11,7 +11,7 @@ export default function Game() {
       Game
       <Input keypress={keypress} setKeypress={setKeypress} />
       <div className='w-full h-screen flex justify-center items-center'>
-        <Grid />
+        <Grid keypress={keypress}/>
       </div>
     </div>
   )
