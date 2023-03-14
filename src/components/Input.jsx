@@ -41,3 +41,5 @@ export default function Input(props) {
     </div>
   )
 }
+
+// Have use effect in both grid and row
