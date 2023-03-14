@@ -6,3 +6,5 @@ export default function Input() {
     </div>
   )
 }
+
+// Have use effect in both grid and row
