@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Input() {
+export default function Input(props) {
 
 // To do: Maybe change this keyboard to use states so we can track each key (i.e change the colour)
 
@@ -16,6 +16,7 @@ export default function Input() {
 
     // Find out which key was pressed based on data attribute (data-key)
     const keyPressed = e.target.getAttribute("data-key");
+    props.setKeypress(keyPressed);
     console.log(keyPressed);
   }
 
