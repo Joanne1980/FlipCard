@@ -1,16 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Box from "./Box";
-
-// This will change depending on Difficulty
-const gridSize = 16;
-
-function gridLayout(size) {
-  const boxes = [];
-  for (let i = 0; i < size; i++) {
-    boxes.push(<Box />);
-  }
-  return boxes;
-}
+import axios from "axios";
 
 //Unsplash API access key
 //CY-iFrJXI04rurx8QvIQCDecckeftZv1kL501Z-hrUw
@@ -19,6 +9,29 @@ function gridLayout(size) {
 //U9QL51xlhb71F5eVTpwuwCJ8tXGOfwQhKq7TWT3HAE8
 
 export default function Grid() {
+  const image = "cats";
+  const clientId = "CY-iFrJXI04rurx8QvIQCDecckeftZv1kL501Z-hrUw";
+  const imageSrc = "";
+
+  const url =
+    "https://api.unsplash.com/search/photos?page=1&query=" +
+    image +
+    "&client_id=" +
+    clientId;
+  axios.get(url).then((response) => {
+    console.log(response);
+    imageSrc = response.data.results[0].urls.full;
+  });
+
+  const gridSize = 16;
+
+  function gridLayout(size) {
+    const boxes = [];
+    for (let i = 0; i < size; i++) {
+      boxes.push(<Box img={imageSrc} key={[i]} />);
+    }
+    return boxes;
+  }
   return (
     <>
       <div>Grid</div>
