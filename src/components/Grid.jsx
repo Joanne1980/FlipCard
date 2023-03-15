@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "./Box";
 
+// This will change depending on Difficulty
 const gridSize = 16;
 
 function gridLayout(size) {
@@ -21,8 +22,10 @@ export default function Grid() {
   return (
     <>
       <div>Grid</div>
-      <div className="w-full full grid  m-3 p-3 grid-rows-4 grid-cols-4">
-        {gridLayout(gridSize)}
+      <div className=" w-1/2 flex justify-center">
+        <div className="w-full full grid m-3 p-3 grid-rows-4 grid-cols-4">
+          {gridLayout(gridSize)}
+        </div>
       </div>
     </>
   );
