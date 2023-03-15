@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
+import Grid from "../components/Grid";
 
 export default function Game() {
   return (
-    <div>Game</div>
-  )
+    <>
+      <div>Game</div>
+      <Grid />
+    </>
+  );
 }
