@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import Box from "./Box";
+
 import axios from "axios";
 
 //Unsplash API access key
@@ -11,15 +11,11 @@ import axios from "axios";
 export default function Grid() {
   const image = "cats";
   const clientId = "CY-iFrJXI04rurx8QvIQCDecckeftZv1kL501Z-hrUw";
-  let imageSrc = "";
 
   let cards = [];
-
+  const [html, setHtml] = useState([]);
   useEffect(() => {
     axios.get(url).then((response) => {
-      console.log(response);
-      // imageSrc = response.data.results[0].urls.full;
-      console.log(imageSrc);
       for (let i = 0; i < 10; i++) {
         const card = {
           pair: i,
@@ -29,7 +25,22 @@ export default function Grid() {
         cards.push(card);
         cards.push(card);
       }
-      console.log(cards);
+      let deck = [];
+      cards.map((card, i) => {
+        deck.push(
+          <div
+            key={i}
+            data-cardid={i}
+            data-cardpair={card.pair}
+            className=" w-32 h-32 bg-teal-800 m-3"
+          >
+            <img src={card.image} alt="" />
+          </div>
+        );
+      });
+      deck = deck.sort(() => Math.random() - 0.5);
+      setHtml(deck);
+      //console.log(cards);
     });
   }, []);
 
@@ -39,26 +50,12 @@ export default function Grid() {
     "&client_id=" +
     clientId;
 
-  const gridSize = 20;
-
-  function gridLayout(size) {
-    const boxes = [];
-    for (let i = 0; i < size; i++) {
-      boxes.push(
-        <div className=" w-32 h-32 bg-teal-800 m-3">
-          <img src={imageSrc} alt="" />
-        </div>
-      );
-    }
-    return boxes;
-  }
-
   return (
     <>
       <div>Grid</div>
       <div className=" w-1/2 flex justify-center">
         <div className="w-full full grid m-3 p-3 grid-rows-4 grid-cols-4">
-          {gridLayout(gridSize)}
+          {html}
         </div>
       </div>
     </>
