@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Box from "./Box";
+// import Box from "./Box";
 import axios from "axios";
 
 //Unsplash API access key
@@ -11,27 +11,36 @@ import axios from "axios";
 export default function Grid() {
   const image = "cats";
   const clientId = "CY-iFrJXI04rurx8QvIQCDecckeftZv1kL501Z-hrUw";
-  const imageSrc = "";
+  let imageSrc = "";
+
+  useEffect(() => {
+    axios.get(url).then((response) => {
+      console.log(response);
+      imageSrc = response.data.results[0].urls.full;
+      console.log(imageSrc);
+    });
+  }, []);
 
   const url =
     "https://api.unsplash.com/search/photos?page=1&query=" +
     image +
     "&client_id=" +
     clientId;
-  axios.get(url).then((response) => {
-    console.log(response);
-    imageSrc = response.data.results[0].urls.full;
-  });
 
   const gridSize = 16;
 
   function gridLayout(size) {
     const boxes = [];
     for (let i = 0; i < size; i++) {
-      boxes.push(<Box img={imageSrc} key={[i]} />);
+      boxes.push(
+        <div className=" w-32 h-32 bg-teal-800 m-3">
+          <img src={imageSrc} alt="" />
+        </div>
+      );
     }
     return boxes;
   }
+
   return (
     <>
       <div>Grid</div>
