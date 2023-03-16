@@ -13,11 +13,23 @@ export default function Grid() {
   const clientId = "CY-iFrJXI04rurx8QvIQCDecckeftZv1kL501Z-hrUw";
   let imageSrc = "";
 
+  let cards = [];
+
   useEffect(() => {
     axios.get(url).then((response) => {
       console.log(response);
-      imageSrc = response.data.results[0].urls.full;
+      // imageSrc = response.data.results[0].urls.full;
       console.log(imageSrc);
+      for (let i = 0; i < 10; i++) {
+        const card = {
+          pair: i,
+          image: response.data.results[i].urls.small,
+          isMatched: "false",
+        };
+        cards.push(card);
+        cards.push(card);
+      }
+      console.log(cards);
     });
   }, []);
 
@@ -27,7 +39,7 @@ export default function Grid() {
     "&client_id=" +
     clientId;
 
-  const gridSize = 16;
+  const gridSize = 20;
 
   function gridLayout(size) {
     const boxes = [];
