@@ -122,7 +122,7 @@ function Experiment() {
             // Create the card html to display on the page
             return (cards.map((card, i) => {
                 return (
-                    <div key={i} data-cardid={i} data-cardpair={card.pair} className={card.isMatched} onClick={handleClick}>
+                    <div key={i} id={"card"+i} data-cardid={i} data-cardpair={card.pair} className={card.isMatched} onClick={handleClick}>
                         <img src={card.image} />
                     </div>
                 )
@@ -161,6 +161,12 @@ function Experiment() {
         if(card1 && card2){
 
             if(card1.pair === card2.pair){
+
+                const card1Selector = document.getElementById('card'+card1.id);
+                const card2Selector = document.getElementById('card'+card2.id);
+                card1Selector.classList.remove("false");
+                card2Selector.classList.remove("false");
+
                 console.log("Pairs are matched")
             } else {
                 console.log("Pairs are not matched, retry!")
@@ -172,9 +178,6 @@ function Experiment() {
             
         }
 
-        
-
-        
     },[currentCards])
 
 
