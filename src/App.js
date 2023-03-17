@@ -1,7 +1,5 @@
 import "./App.css";
-import Starter from "./pages/Starter";
 import Game from "./pages/Game";
-import End from "./pages/End";
 import { useState } from "react";
 import Countdown from './components/Countdown'
 
@@ -16,9 +14,7 @@ function App() {
 
   return (
     <div>
-      <Starter />
       <Game />
-      <End />
       <Countdown timer={timer} setTimer={setTimer} />
     </div>
   );

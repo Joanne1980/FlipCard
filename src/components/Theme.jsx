@@ -1,19 +1,25 @@
-import React from "react";
-//Show three buttons showing different theme options; 
-//To do:
-//Add a gap between the LOGO row and the buttons row;
-//Add </Difficulty> to the Starter page;
+import React, { useState, useEffect } from "react";
 
-const cats=0;
-const dogs=0;
-const cars=0;
-export default function Difficulty() {
-  return <div>
-    <div class="flex flex-row justify-center"> LOGO </div>
-    <div class="flex flex-row justify-center gap-x-8 gap-y-8">
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={cats}>Cats</button> 
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={dogs}>Dogs</button>
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={cars}>Cars</button>
-  </div>;
-  </div>; 
+export default function Theme({ theme, setTheme }) {
+  function playGame(e) {
+    const chosenTheme = e.target.value
+    setTheme(chosenTheme)
+    const hideStarter = document.getElementById("hideStarter")
+    hideStarter.setAttribute('class', 'hide')
+  }
+  useEffect(() => {
+    console.log(theme)
+  }, [theme])
+
+  return (
+    <div id="hideStarter">
+      <div>Starter</div>
+      <div className="flex flex-row justify-center"> LOGO </div>
+      <div className="flex flex-row justify-center gap-x-8 gap-y-8">
+        <button value="cats" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={playGame}>Cats</button>
+        <button value="dogs" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={playGame}>Dogs</button>
+        <button value="cars" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={playGame}>Cars</button>
+      </div>;
+    </div>
+  )
 };
