@@ -63,7 +63,7 @@ export default function Grid({ theme }) {
               <ReactBoxFlip isFlipped={card.isFlipped}>
                 <div className="object-cover">
                   <img
-                    className="object-cover w-32 h-32"g
+                    className="object-cover w-32 h-32"
                     src={card.image}
                     alt=""
                   />
