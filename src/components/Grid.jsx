@@ -57,13 +57,13 @@ export default function Grid({ theme }) {
               key={i}
               data-cardid={i}
               data-cardpair={card.pair}
-              className="m-3"
+              className="m-3  w-32 h-32"
               onClick={(e) => handleClick(i)}
             >
               <ReactBoxFlip isFlipped={card.isFlipped}>
-                <div className="object-cover w-32 h-32">
+                <div className="object-cover">
                   <img
-                    className="object-cover w-32 h-32"
+                    className="object-cover w-32 h-32"g
                     src={card.image}
                     alt=""
                   />
