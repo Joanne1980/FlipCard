@@ -13,11 +13,14 @@ export default function Grid({ theme }) {
   const image = theme;
   const clientId = "CY-iFrJXI04rurx8QvIQCDecckeftZv1kL501Z-hrUw";
 
-  const [isFlipped, setIsFlipped] = useState([]);
-
-  const [html, setHtml] = useState([]);
-
   const [cardsContent, setCardsContent] = useState([]);
+
+  const url =
+    "https://api.unsplash.com/search/photos?page=1&query=" +
+    image +
+    "&client_id=" +
+    clientId +
+    "&orientation=squarish";
 
   useEffect(() => {
     let cards = [];
@@ -31,55 +34,45 @@ export default function Grid({ theme }) {
           isFlipped: false,
         };
         cards.push(card);
-        cards.push(card);
+        cards.push({ ...card });
       }
       cards = cards.sort(() => Math.random() - 0.5);
       setCardsContent(cards);
     });
   }, [image]);
 
-  const url =
-    "https://api.unsplash.com/search/photos?page=1&query=" +
-    image +
-    "&client_id=" +
-    clientId +
-    "&orientation=squarish";
-
   function handleClick(i) {
-    // setIsFlipped(!isFlipped);
-    console.log("click");
-    cardsContent[i].isFlipped = !cardsContent[i].isFlipped;
-    setCardsContent(cardsContent);
+    const cardsContentCopy = [...cardsContent];
+    cardsContentCopy[i].isFlipped = !cardsContentCopy[i].isFlipped;
+    setCardsContent(cardsContentCopy);
   }
 
   return (
     <>
       <div>Grid</div>
       <div className="flex justify-center">
-        <div className="w-full full grid m-0.5 p-0.5 grid-rows-4 grid-cols-4">
-          {cardsContent.map((card, i) => {
-            return (
-              <div
-                key={i}
-                data-cardid={i}
-                data-cardpair={card.pair}
-                className="m-3"
-              >
-                <button onClick={(e) => handleClick(i)}>test button</button>
-                <ReactBoxFlip isFlipped={card.isFlipped}>
-                  <div className="object-cover w-32 h-32">
-                    <img
-                      className="object-cover w-32 h-32"
-                      src={card.image}
-                      alt=""
-                    />
-                  </div>
+        <div className="w-full full grid gap-32 p-0.5 grid-rows-4 grid-cols-4">
+          {cardsContent.map((card, i) => (
+            <div
+              key={i}
+              data-cardid={i}
+              data-cardpair={card.pair}
+              className="m-3"
+              onClick={(e) => handleClick(i)}
+            >
+              <ReactBoxFlip isFlipped={card.isFlipped}>
+                <div className="object-cover w-32 h-32">
+                  <img
+                    className="object-cover w-32 h-32"
+                    src={card.image}
+                    alt=""
+                  />
+                </div>
 
-                  <div className="object-cover w-32 h-32 bg-black"></div>
-                </ReactBoxFlip>
-              </div>
-            );
-          })}
+                <div className="object-cover w-32 h-32 bg-black"></div>
+              </ReactBoxFlip>
+            </div>
+          ))}
         </div>
       </div>
     </>
