@@ -8,8 +8,8 @@ import axios from "axios";
 //Unsplash API Secret key
 //U9QL51xlhb71F5eVTpwuwCJ8tXGOfwQhKq7TWT3HAE8
 
-export default function Grid() {
-  const image = "cats";
+export default function Grid({theme}) {
+  const image = theme;
   const clientId = "CY-iFrJXI04rurx8QvIQCDecckeftZv1kL501Z-hrUw";
 
   let cards = [];
@@ -32,9 +32,9 @@ export default function Grid() {
             key={i}
             data-cardid={i}
             data-cardpair={card.pair}
-            className=" w-32 h-32 bg-teal-800 m-3"
+            className="m-3"
           >
-            <img src={card.image} alt="" />
+            <img className="object-cover w-32 h-32" src={card.image} alt="" />
           </div>
         );
       });
@@ -42,19 +42,20 @@ export default function Grid() {
       setHtml(deck);
       //console.log(cards);
     });
-  }, []);
+  }, [image]);
 
   const url =
     "https://api.unsplash.com/search/photos?page=1&query=" +
     image +
     "&client_id=" +
-    clientId;
+    clientId + 
+    "&orientation=squarish";
 
   return (
     <>
       <div>Grid</div>
-      <div className=" w-1/2 flex justify-center">
-        <div className="w-full full grid m-3 p-3 grid-rows-4 grid-cols-4">
+      <div className="flex justify-center">
+        <div className="w-full full grid m-0.5 p-0.5 grid-rows-4 grid-cols-4">
           {html}
         </div>
       </div>
