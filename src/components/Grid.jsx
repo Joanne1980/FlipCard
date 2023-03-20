@@ -21,7 +21,7 @@ export default function Grid({ theme }) {
   // Keeping track of which two cards the user has picked
   const [cardsPicked, setCardsPicked] = useState([]);
 
-  const [gameCounter, setGameCounter] = useState(0);
+  const [turnCounter, setTurnCounter] = useState(0);
 
   const url =
     "https://api.unsplash.com/search/photos?page=1&query=" +
@@ -109,7 +109,7 @@ export default function Grid({ theme }) {
       // Update cards content
       setCardsContent(cardsContentCopy);
       // Increase the game count
-      setGameCounter(gameCounter + 1);
+      setTurnCounter(turnCounter + 1);
       // isFlipped: false
       // isMatched: "false"
     } else {
@@ -133,9 +133,9 @@ export default function Grid({ theme }) {
 
   useEffect(() =>{
 
-    console.log("Game count is: "+ gameCounter)
+    console.log("Game count is: "+ turnCounter)
 
-  },[gameCounter])
+  },[turnCounter])
 
 
   return (
