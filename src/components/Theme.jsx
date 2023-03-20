@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export default function Theme({ theme, setTheme }) {
+  
   function playGame(e) {
     const chosenTheme = e.target.value
     setTheme(chosenTheme)
