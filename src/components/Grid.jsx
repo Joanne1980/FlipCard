@@ -15,6 +15,9 @@ export default function Grid({ theme }) {
 
   const [cardsContent, setCardsContent] = useState([]);
 
+  // Keeping track of which two cards the user has picked
+  const [cardsPicked, setcardsPicked] = useState({ card1: null, card2: null });
+
   const url =
     "https://api.unsplash.com/search/photos?page=1&query=" +
     image +
@@ -41,11 +44,76 @@ export default function Grid({ theme }) {
     });
   }, [image]);
 
+
+  // Code to check if selected picked are a match or not.
+
+  useEffect(() => {
+
+    // check if both cards have been picked by the user
+
+
+     console.log(cardsContent);
+    // console.log(cardsPicked);
+    // console.log(cardsPicked.card1);
+    // console.log(cardsPicked.card2);
+
+    // GRAB CARD 1 DATA
+    const card1 = cardsContent[cardsPicked.card1];
+
+    // GRAB CARD 2 DATA
+    const card2 = cardsContent[cardsPicked.card2];
+
+    // IF BOTH CARD 1 & CARD 2 ARE SELECTED, FIGURE OUT IF THEY MATCH
+    if (card1 && card2) {
+
+      console.log("there is something")
+      
+      const cardsContentCopy = [...cardsContent];
+      cardsContentCopy[cardsPicked.card1].isMatched = true;
+      cardsContentCopy[cardsPicked.card2].isMatched = true;
+      setCardsContent(cardsContentCopy);
+
+      // const cardsContentCopy = [...cardsContent];
+      // cardsContentCopy[i].isFlipped = !cardsContentCopy[i].isFlipped;
+      // setCardsContent(cardsContentCopy);
+
+      if (card1.pair === card2.pair) {
+
+        console.log("Pairs are matched")
+        
+        
+// isFlipped: false
+
+// isMatched: "false"
+
+
+
+      } else {
+
+        console.log("Pairs are not matched, retry!")
+
+        // RESET USER SELECTION
+        setcardsPicked({ ...cardsPicked, card1: null })
+        setcardsPicked({ ...cardsPicked, card2: null })
+      }
+
+     }
+  }, [cardsPicked]);
+
+
   function handleClick(i) {
     const cardsContentCopy = [...cardsContent];
     cardsContentCopy[i].isFlipped = !cardsContentCopy[i].isFlipped;
     setCardsContent(cardsContentCopy);
+
+    // If the cardsPicked data is empty, we want to populate it with the two cards the user picked.
+    if (cardsPicked.card1 === null) {
+      setcardsPicked({ ...cardsPicked, card1: i  })
+    } else if (cardsPicked.card2 === null) {
+      setcardsPicked({ ...cardsPicked, card2: i  })
+    } 
   }
+
 
   return (
     <>
