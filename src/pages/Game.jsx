@@ -6,6 +6,7 @@ import Instructions from "../components/Instructions";
 
 export default function Game() {
   const [theme, setTheme] = useState("cats");
+
   return (
     <>
       {" "}

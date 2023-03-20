@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Instructions from "./Instructions";
+import Stats from "./Stats";
 
 export default function Header() {
   return (
@@ -26,6 +27,7 @@ export default function Header() {
             </a>
           </li>
           <Instructions />
+          <Stats />
         </ul>
       </nav>
     </>

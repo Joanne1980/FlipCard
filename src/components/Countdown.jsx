@@ -1,11 +1,15 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import getCurrentDate from "../utils/Date";
+import Date from "../utils/Date";
 
 /*
 To use this, call this component in a parent component
 <Countdown timer={timer} setTimer={setTimer} /> 
 */
+
 export default function Countdown({ timer, setTimer }) {
+  const [highScore, setHighScore] = useState([]);
 
   // Format the seconds to display as minutes and seconds
 
@@ -23,17 +27,13 @@ export default function Countdown({ timer, setTimer }) {
   */
   let seconds = timer % 60;
 
-  
   useEffect(() => {
-
     // setInterval to run every second.
     const interval = setInterval(() => {
-
       // Update the state of setTimer
-      setTimer(timer => timer + 1);
+      setTimer((timer) => timer + 1);
 
       //console.log(timer)
-
     }, 1000);
 
     //console.log("minutes:" + minutes)
@@ -41,13 +41,26 @@ export default function Countdown({ timer, setTimer }) {
     //console.log("seconds:" + seconds)
 
     return () => clearInterval(interval);
-
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem(getCurrentDate(), JSON.stringify(highScore));
+  }, [highScore]);
+
+  if (seconds === 5) {
+    console.log("if timer check");
+    setHighScore();
+  }
+
   // to do: Need to format this better
-  return <div>
-    Counter<br/>
-    Minutes: {minutes}<br/>
-    Seconds: {seconds}
-  </div>;
+  return (
+    <>
+      <div>
+        Minutes: {minutes}
+        <br />
+        Seconds: {seconds}
+      </div>
+      {getCurrentDate()}
+    </>
+  );
 }

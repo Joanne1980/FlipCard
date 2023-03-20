@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ReactBoxFlip from "react-box-flip";
-
+import Countdown from "./Countdown";
 import axios from "axios";
 
-//DeepL Translation API access key 
+//DeepL Translation API access key
 //550684ab-ec02-1be9-afdc-c29fa7cde635:fx
 
 //Unsplash API access key
@@ -15,6 +15,8 @@ import axios from "axios";
 export default function Grid({ theme }) {
   const image = theme;
   const clientId = "CY-iFrJXI04rurx8QvIQCDecckeftZv1kL501Z-hrUw";
+
+  const [timer, setTimer] = useState(0);
 
   const [cardsContent, setCardsContent] = useState([]);
 
@@ -54,6 +56,7 @@ export default function Grid({ theme }) {
     <>
       <div>Grid</div>
       <div className="flex justify-center">
+        <Countdown timer={timer} setTimer={setTimer} />
         <div className="w-full full grid gap-32 p-0.5 grid-rows-4 grid-cols-4">
           {cardsContent.map((card, i) => (
             <div
