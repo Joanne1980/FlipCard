@@ -37,6 +37,9 @@ export default function Stats() {
                 <div className="relative px-10 py-6 flex-auto my-4 text-primary-100 text-lg font-semi-bold leading-relaxed">
                   <p>Your time was:</p>
                 </div>
+                <div>
+                  <h3>High Scores</h3>
+                </div>
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-primary-400 rounded-b">
                   <button
@@ -51,7 +54,7 @@ export default function Stats() {
                     type="button"
                     onClick={() => setShowModal(false)}
                   >
-                    Save Changes
+                    Play Again
                   </button>
                 </div>
               </div>

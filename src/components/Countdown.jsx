@@ -8,7 +8,7 @@ To use this, call this component in a parent component
 <Countdown timer={timer} setTimer={setTimer} /> 
 */
 
-export default function Countdown({ timer, setTimer }) {
+export default function Countdown({ timer, setTimer, turnCounter }) {
   const [highScore, setHighScore] = useState([]);
 
   // Format the seconds to display as minutes and seconds
@@ -36,21 +36,17 @@ export default function Countdown({ timer, setTimer }) {
       //console.log(timer)
     }, 1000);
 
-    //console.log("minutes:" + minutes)
-
-    //console.log("seconds:" + seconds)
-
-    return () => clearInterval(interval);
+    const counter = 10; // This will be when all cards are matched (from Grid.jsx)
+    if (counter === 10) {
+      setHighScore(timer);
+      // return () => clearInterval(interval);
+    }
+    //
   }, []);
 
   useEffect(() => {
     localStorage.setItem(getCurrentDate(), JSON.stringify(highScore));
   }, [highScore]);
-
-  if (seconds === 5) {
-    console.log("if timer check");
-    setHighScore();
-  }
 
   // to do: Need to format this better
   return (

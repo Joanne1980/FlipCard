@@ -8,8 +8,6 @@ export default function getCurrentDate() {
   let hour = newDate.getHours();
   let mins = newDate.getMinutes();
 
-  return `${date}
-  ${month < 10 ? `0${month}` : `${month}`}
-  ${year}
+  return `${date}/${month < 10 ? `0${month}` : `${month}`}/${year} -
   ${hour}:${mins < 10 ? `0${mins}` : `${mins}`}`;
 }
