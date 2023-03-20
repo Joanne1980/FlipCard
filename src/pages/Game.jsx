@@ -11,7 +11,6 @@ export default function Game() {
       {" "}
       <Header />
       <Theme theme={theme} setTheme={setTheme} />
-      <div>Game</div>
       <Grid theme={theme} />
     </>
   );
