@@ -164,7 +164,7 @@ export default function Grid({ theme }) {
                 </div>
 
                 <div className="object-cover">
-                  <img src="card3.png" className=" w-32 h-32 "/>
+                  <img src="card2.png" className=" w-32 h-32 "/>
                 </div>
               </ReactBoxFlip>
             </div>
