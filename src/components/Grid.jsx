@@ -3,6 +3,9 @@ import ReactBoxFlip from "react-box-flip";
 
 import axios from "axios";
 
+//DeepL Translation API access key 
+//550684ab-ec02-1be9-afdc-c29fa7cde635:fx
+
 //Unsplash API access key
 //CY-iFrJXI04rurx8QvIQCDecckeftZv1kL501Z-hrUw
 
