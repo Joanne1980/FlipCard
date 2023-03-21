@@ -10,9 +10,10 @@ export default function Game() {
 
   return (
     <>
-      {" "}
       <Header />
       <Theme theme={theme} setTheme={setTheme} />
+      <Instructions />
+      <Grid theme={theme} />
       <Grid turnCounter={turnCounter} setTurnCounter={setTurnCounter} theme={theme} />
     </>
   );
