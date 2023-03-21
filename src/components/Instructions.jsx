@@ -64,7 +64,7 @@ export default function Instructions({ theme, setTheme, playGame }) {
                 <div className="flex items-center justify-between p-6 border-t border-solid border-primary-400 rounded-b">
                   <button
                     value="Cats"
-                    className="text-secondary-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="bg-secondary-600 text-secondary-100 active:bg-secondary-400 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => {
                       setShowModal(false);
@@ -74,11 +74,37 @@ export default function Instructions({ theme, setTheme, playGame }) {
                     Cats
                   </button>
                   <button
+                    value="Dogs"
                     className="bg-secondary-600 text-secondary-100 active:bg-secondary-400 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setShowModal(false)}
+                    onClick={() => {
+                      setShowModal(false);
+                      playGame("Dogs");
+                    }}
                   >
-                    Save Changes
+                    Dogs
+                  </button>
+                  <button
+                    value="Cars"
+                    className="bg-secondary-600 text-secondary-100 active:bg-secondary-400 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => {
+                      setShowModal(false);
+                      playGame("Cars");
+                    }}
+                  >
+                    Cars
+                  </button>
+                  <button
+                    value="Fire"
+                    className="bg-secondary-600 text-secondary-100 active:bg-secondary-400 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => {
+                      setShowModal(false);
+                      playGame("Fire");
+                    }}
+                  >
+                    Fire
                   </button>
                 </div>
               </div>
