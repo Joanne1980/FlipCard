@@ -8,7 +8,7 @@ To use this, call this component in a parent component
 <Countdown timer={timer} setTimer={setTimer} /> 
 */
 
-export default function Countdown({ timer, setTimer,turnCounter }) {
+export default function Countdown({ timer, setTimer, turnCounter }) {
   const [highScore, setHighScore] = useState([]);
 
   // Format the seconds to display as minutes and seconds
@@ -37,7 +37,7 @@ export default function Countdown({ timer, setTimer,turnCounter }) {
     }, 1000);
 
     //const counter = 10; // This will be when all cards are matched (from Grid.jsx)
-    if (turnCounter === 10) {
+    if (turnCounter === 2) {
       setHighScore(timer);
       // return () => clearInterval(interval);
     }
