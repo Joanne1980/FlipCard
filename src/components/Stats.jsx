@@ -64,6 +64,9 @@ export default function Stats() {
                   <p>Your time was:</p>
                 </div> */}
                 <div>
+                  <img src="https://fastly.picsum.photos/id/529/300/200.jpg?hmac=5NWr3tx1ImTp75XEVdEicmW5ZlYYotQ3ExDHAkwz4iU" />
+                </div>
+                <div>
                   {/* <h3 className="px-5">High Scores</h3> */}
                   <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                   <thead>
