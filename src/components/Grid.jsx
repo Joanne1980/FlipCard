@@ -12,7 +12,7 @@ import axios from "axios";
 //Unsplash API Secret key
 //U9QL51xlhb71F5eVTpwuwCJ8tXGOfwQhKq7TWT3HAE8
 
-export default function Grid({ theme }) {
+export default function Grid({ theme, turnCounter, setTurnCounter }) {
   const image = theme;
   const clientId = "CY-iFrJXI04rurx8QvIQCDecckeftZv1kL501Z-hrUw";
 
@@ -22,8 +22,6 @@ export default function Grid({ theme }) {
 
   // Keeping track of which two cards the user has picked
   const [cardsPicked, setCardsPicked] = useState([]);
-
-  const [turnCounter, setTurnCounter] = useState(0);
 
   const [gameLoaded, setGameLoaded] = useState(false);
 
@@ -155,7 +153,7 @@ export default function Grid({ theme }) {
     <>
       <div className="flex flex-col items-center bg-alt-800 min-h-screen p-5">
         <h2 className="text-alt-100 font-black uppercase text-4xl">{theme}</h2>
-        {/* <Countdown timer={timer} setTimer={setTimer} /> */}
+        <Countdown timer={timer} setTimer={setTimer} turnCounter={turnCounter} />
         <div className=" w-1/2 grid m-2 gap-x-2 gap-y-36 grid-rows-4 grid-cols-5">
           {cardsContent.map((card, i) => (
             <div

@@ -9,7 +9,7 @@ To use this, call this component in a parent component
 */
 
 export default function Countdown({ timer, setTimer, turnCounter }) {
-  const [highScore, setHighScore] = useState([]);
+  const [highScore, setHighScore] = useState("");
 
   // Format the seconds to display as minutes and seconds
 
@@ -37,26 +37,87 @@ export default function Countdown({ timer, setTimer, turnCounter }) {
     }, 1000);
 
     //const counter = 10; // This will be when all cards are matched (from Grid.jsx)
-    if (turnCounter === 2) {
-      setHighScore(timer);
-      // return () => clearInterval(interval);
-    }
     //
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(getCurrentDate(), JSON.stringify(highScore));
-  }, [highScore]);
+
+    if (turnCounter === 10) {
+      setHighScore(timer);
+      // return () => clearInterval(interval);
+    }
+    
+  }, [turnCounter]);
+  
+  useEffect(()=> {
+    //console.log("highScore has been set!:" + highScore)
+
+
+    //Initialise an empty array to store the scores as array elements
+    // We are going to push an array of objects to our localStorage
+    let scores = []
+
+    let scoreToSubmit = {
+      date: getCurrentDate(),
+      score: highScore
+    }
+
+    if (highScore !== "") {
+      console.log("High score has been set!"+highScore)
+      // If the localStorage item 'scores' is not empty then we want to fetch the current scores and append to them
+      if (localStorage.getItem('scores') !== null) {
+
+        // fetch the current scores string and convert it into an array
+        scores = JSON.parse(localStorage.getItem('scores'))
+
+        // Push the new score record to the scores array
+        scores.push(scoreToSubmit)
+
+        // Save the updated scores to localStorage
+        localStorage.setItem('scores', JSON.stringify(scores))
+
+        // call the processHighScore function for re-sorting the high scores
+        processHighScore()
+      }
+      // If the localStorage item 'scores' is empty then we want just need to append to it
+      else {
+        // Push the new score as an array element
+        scores.push(scoreToSubmit)
+
+        // store the scores array as a string in local storage item 'scores'
+        localStorage.setItem('scores', JSON.stringify(scores))
+
+        // call the processHighScore function for re-sorting the high scores
+        processHighScore()
+      }
+
+    }    
+
+  },[highScore])
+
+  // A function to sort the high scores and re-save
+const processHighScore = () => {
+
+
+  // Create a scores array based on the data within 'scores' localStorage item
+  let scores = JSON.parse(localStorage.getItem('scores'))
+  //console.log(scores)
+
+  // use the array.sort function but override it to change the order to High > Low
+  scores.sort(function (value1, value2) {
+
+      return value1.score - value2.score
+
+  })
+
+  //console.log(scores)
+  // re-save the 'scores' localStorage item to the newly sorted array
+  localStorage.setItem('scores', JSON.stringify(scores))
+
+}
 
   // to do: Need to format this better
   return (
-    <>
-      <div>
-        Minutes: {minutes}
-        <br />
-        Seconds: {seconds}
-      </div>
-      {getCurrentDate()}
-    </>
+    <></>
   );
 }
