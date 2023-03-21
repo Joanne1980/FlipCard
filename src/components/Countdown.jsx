@@ -36,8 +36,8 @@ export default function Countdown({ timer, setTimer, turnCounter }) {
       //console.log(timer)
     }, 1000);
 
-    const counter = 10; // This will be when all cards are matched (from Grid.jsx)
-    if (counter === 10) {
+    //const counter = 10; // This will be when all cards are matched (from Grid.jsx)
+    if (turnCounter === 10) {
       setHighScore(timer);
       // return () => clearInterval(interval);
     }

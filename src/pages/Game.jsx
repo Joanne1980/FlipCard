@@ -6,13 +6,14 @@ import Instructions from "../components/Instructions";
 
 export default function Game() {
   const [theme, setTheme] = useState("");
+  const [turnCounter, setTurnCounter] = useState(0);
 
   return (
     <>
       {" "}
       <Header />
       <Theme theme={theme} setTheme={setTheme} />
-      <Grid theme={theme} />
+      <Grid turnCounter={turnCounter} setTurnCounter={setTurnCounter} theme={theme} />
     </>
   );
 }
