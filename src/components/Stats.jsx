@@ -4,6 +4,32 @@ import Countdown from "./Countdown";
 export default function Stats() {
   const [showModal, setShowModal] = React.useState(false);
 
+  const getHighScores = () => {
+
+
+    if (localStorage.getItem('scores') !== null) {
+
+      const scoresHtml = [];
+
+      const scores = JSON.parse(localStorage.getItem('scores'));
+
+      return scores.map((score, i) => {
+        return (
+          <tr key={i} class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              {score.date}
+            </th>
+            <td class="px-6 py-4">
+              {score.score}
+            </td>
+          </tr>
+        )
+
+      })
+
+    }
+  }
+
   return (
     <>
       <button
@@ -39,6 +65,9 @@ export default function Stats() {
                 </div>
                 <div>
                   <h3>High Scores</h3>
+                  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    {getHighScores()}
+                  </table>
                 </div>
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-primary-400 rounded-b">
