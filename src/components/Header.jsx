@@ -8,7 +8,7 @@ export default function Header() {
       <nav className="px-2 sm:px-4 py-2.5 rounded bg-primary-600 h-15">
         <h2 class="font-{300} 1.150rem">Flip Card</h2>
         <div class="flex start">
-          <img alt="game logo" src="././logo1.png" />
+          <img alt="game logo" src="././design1.png" />
         </div>
         <ul class="flex justify-end">
           <li class="mr-3">
