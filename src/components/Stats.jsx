@@ -20,7 +20,7 @@ export default function Stats() {
               {score.date}
             </th>
             <td class="px-6 py-4">
-              {score.score}
+            {Math.floor(score.score / 60)}min {score.score % 60}sec    
             </td>
           </tr>
         )
@@ -48,7 +48,7 @@ export default function Stats() {
                 {/*header*/}
                 <div className="flex p-5 bg-primary-600 border-b border-solid border-primary-400 rounded-t w-full text-center ">
                   <h3 className="text-3xl font-bold uppercase text-primary-100 ">
-                    Stats
+                    High Scores
                   </h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-primary-300 opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -60,13 +60,21 @@ export default function Stats() {
                   </button>
                 </div>
                 {/*body*/}
-                <div className="relative px-10 py-6 flex-auto my-4 text-primary-100 text-lg font-semi-bold leading-relaxed">
+                {/* <div className="relative px-10 py-6 flex-auto my-4 text-primary-100 text-lg font-semi-bold leading-relaxed">
                   <p>Your time was:</p>
-                </div>
+                </div> */}
                 <div>
-                  <h3>High Scores</h3>
+                  {/* <h3 className="px-5">High Scores</h3> */}
                   <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                  <thead>
+                  <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                    <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">Date</th>
+                    <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">Time</th>
+                  </tr>
+                </thead>
+                    <tbody>
                     {getHighScores()}
+                    </tbody>
                   </table>
                 </div>
                 {/*footer*/}
@@ -81,7 +89,7 @@ export default function Stats() {
                   <button
                     className="bg-secondary-600 text-secondary-100 active:bg-secondary-400 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setShowModal(false)}
+                    onClick={() => window.location.reload(false)}
                   >
                     Play Again
                   </button>
