@@ -61,6 +61,9 @@ export default function Instructions({ theme, setTheme, playGame }) {
                   </ol>
                 </div>
                 {/*footer*/}
+                <div>
+                  <h2 className="">Select your theme</h2>
+                </div>
                 <div className="flex items-center justify-between p-6 border-t border-solid border-primary-400 rounded-b">
                   <button
                     value="Cats"

@@ -2,7 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+@font-face {
+  font-family: "machina-bold";
+  src: url("../src/assets/fonts/NeueMachina-Ultrabold.otf");
+}
+
+@font-face {
+  font-family: "machina";
+  src: url("../src/assets/fonts/NeueMachina-Regular.otf");
+}
+
+@layer base {
+  h1 {
+    font-family: "machina-bold";
+  }
+  h2 {
+    font-family: "machina";
+  }
+  h3 {
+    font-family: "machina";
+  }
+  h4 {
+    font-family: "Helvetica";
+  }
+  h5 {
+    font-family: "Helvetica";
+  }
+  p {
+    font-family: "Helvetica";
+  }
+  a {
+    font-family: "Helvetica";
+  }
+}
+
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -14,4 +48,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
+} */
