@@ -25,6 +25,9 @@ export default function Grid({ theme }) {
 
   const [turnCounter, setTurnCounter] = useState(0);
 
+  const [gameLoaded, setGameLoaded] = useState(false);
+
+ 
   const url =
     "https://api.unsplash.com/search/photos?page=1&query=" +
     image +
@@ -35,6 +38,7 @@ export default function Grid({ theme }) {
   useEffect(() => {
     let cards = [];
 
+    if(image){ 
     axios.get(url).then((response) => {
       for (let i = 0; i < 10; i++) {
         const card = {
@@ -48,10 +52,30 @@ export default function Grid({ theme }) {
       }
       cards = cards.sort(() => Math.random() - 0.5);
       setCardsContent(cards);
+      setGameLoaded(true);
     });
+  }
   }, [image]);
 
+  useEffect(()=>{
+    if(gameLoaded){
+      console.log("Game loaded");
+      setTimeout(() => {
 
+        console.log("timeout")
+  
+        const cardsContentCopy = [...cardsContent];
+        //console.log(cardsContentCopy)
+        cardsContentCopy.forEach((element,i)=>{
+          cardsContentCopy[i].isFlipped = true;
+        });
+  
+        //console.log(cardsContentCopy)
+       setCardsContent(cardsContentCopy);
+  
+       }, 2000);      
+    }
+  },[gameLoaded])
 
   function handleClick(i) {
     const cardsContentCopy = [...cardsContent];
@@ -73,7 +97,7 @@ export default function Grid({ theme }) {
       if (cardsPicked.length === 2) {
         setTimeout(() => {
           checkCards();
-        }, 750);
+        }, 1000);
       }
     }
 
@@ -84,7 +108,7 @@ export default function Grid({ theme }) {
   const checkCards = () => {
 
     console.log("cards checked")
-    console.log(cardsPicked)
+    //console.log(cardsPicked)
 
     // Assign variables to both cards for clearer code
     const card1 = cardsPicked[0];
@@ -119,14 +143,14 @@ export default function Grid({ theme }) {
     //If cards are not matched, flip them back over.
       console.log("Pairs are not matched, retry!");
       // Flip cards over
-      cardsContentCopy[card1].isFlipped = false
-      cardsContentCopy[card2].isFlipped = false;
+      cardsContentCopy[card1].isFlipped = true
+      cardsContentCopy[card2].isFlipped = true;
 
       // Update cards content
       setCardsContent(cardsContentCopy);
     }
 
-    console.log(cardsContent)
+    // console.log(cardsContent)
 
     // Reset the cards picked to empty 
     setCardsPicked([]);
@@ -156,7 +180,7 @@ export default function Grid({ theme }) {
               onClick={(e) => handleClick(i)}
             >
 
-              <ReactBoxFlip isFlipped={!card.isFlipped}>
+              <ReactBoxFlip isFlipped={card.isFlipped}>
 
                 <div className="object-cover">
                   <img
