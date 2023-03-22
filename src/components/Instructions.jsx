@@ -1,10 +1,18 @@
 import React, { useState } from "react";
+import Confetti from "./Confetti";
 
 export default function Instructions({ playGame }) {
   // Modal open/close
   const [showModal, setShowModal] = useState(true);
   // User input theme search
   const [input, setInput] = useState("");
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  <button onClick={() => setIsVisible(true)}>Fire</button>;
+  {
+    isVisible && <Confetti />;
+  }
 
   return (
     <>
@@ -123,6 +131,8 @@ export default function Instructions({ playGame }) {
                       >
                         Set Theme
                       </button>
+                      <button onClick={() => setIsVisible(true)}>Fire</button>
+                      {isVisible && <Confetti />}
                     </div>
                   </div>
                 </div>
