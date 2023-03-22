@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactBoxFlip from "react-box-flip";
 import Countdown from "./Countdown";
 import axios from "axios";
+import GitHubLogo from "../assets/images/github-mark.svg";
 
 //X-RapidAPI-Key':
 //'6ad8abfd77mshf2eeda7dbb2a73ep178573jsne1cbeaa1df4e',
@@ -12,7 +13,16 @@ import axios from "axios";
 //Unsplash API Secret key
 //U9QL51xlhb71F5eVTpwuwCJ8tXGOfwQhKq7TWT3HAE8
 
-export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighScores, startTime, setStartTime,highScore, setHighScore }) {
+export default function Grid({
+  theme,
+  turnCounter,
+  setTurnCounter,
+  setShowHighScores,
+  startTime,
+  setStartTime,
+  highScore,
+  setHighScore,
+}) {
   const image = theme;
   const clientId = "CY-iFrJXI04rurx8QvIQCDecckeftZv1kL501Z-hrUw";
 
@@ -50,7 +60,7 @@ export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighSco
         setGameLoaded(true);
       });
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps  
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
 
   useEffect(() => {
@@ -71,15 +81,13 @@ export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighSco
     }
     const date = new Date();
     setStartTime(date);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameLoaded]);
 
   function handleClick(i) {
     const cardsContentCopy = [...cardsContent];
 
-
-    if (cardsPicked.length !== 2){
-
+    if (cardsPicked.length !== 2) {
       // We only want to flip the card over if it's not matched
       if (!cardsContentCopy[i].isMatched) {
         console.log("Is not matched!");
@@ -153,12 +161,12 @@ export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighSco
 
   return (
     <>
-      <div className="flex flex-col items-center bg-alt-800 h-[calc(100vh-70px)] p-5">
+      <div className="flex flex-col h-80vh] items-center bg-alt-800 h-[calc(100vh-70px)] p-5">
         <div
           className={
             theme
-              ? "bg-secondary-600 flex rounded-lg w-full sm:w-4/5 lg:w-1/2 justify-center text-center pt-4 pb-1 mb-5 mt-5"
-              : "bg-secondary-600 flex rounded-lg w-full sm:w-4/5 lg:w-1/2 justify-center text-center  mb-5 mt-5"
+              ? "bg-secondary-600 flex rounded-lg w-full sm:w-4/5 lg:w-[800px] justify-center text-center pt-4 pb-1 mb-5 mt-5"
+              : "bg-secondary-600 flex rounded-lg w-full sm:w-4/5 lg:w-[800px] justify-center text-center  mb-5 mt-5"
           }
         >
           <h1 className="text-alt-100 uppercase text-6xl ">{theme}</h1>
@@ -172,9 +180,10 @@ export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighSco
           setHighScore={setHighScore}
           theme={theme}
         />
-        {/* <div className="gap-y-[25vw] gap-x-[5%] w-full grid gap-y-32 gap-x-2 md:gap-y-40 md:gap-x-2 grid-rows-5 grid-cols-4 md:grid-rows-4 md:grid-cols-5"> */}
-
-        <div className="grid w-full sm:w-4/5 lg:w-1/2 xl:w-92 gap-y-[23vw] gap-x-[1vw] sm:gap-y-[19vw] sm:gap-x-[1vw] md:gap-y-[15.2vw] md:gap-x-[1vw] lg:gap-y-[10vw] lg:gap-x-[1vw] grid-rows-5 grid-cols-4 md:grid-rows-4 md:grid-cols-5">
+        {/* Grid:
+        - Explicit width and gap for Large screen size and above
+        - 4 cols up to Medium breakpoint, 5 cols after */}
+        <div className="grid w-full sm:w-4/5 lg:w-[800px] gap-y-[23vw] gap-x-[1vw] sm:gap-y-[19vw] sm:gap-x-[1vw] md:gap-y-[15.2vw] md:gap-x-[1vw] lg:gap-y-[160px] lg:gap-x-[1vw] grid-rows-5 grid-cols-4 md:grid-rows-4 md:grid-cols-5">
           {cardsContent.map((card, i) => (
             <div
               key={i}
@@ -199,20 +208,28 @@ export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighSco
                 </div>
 
                 <div className="object-cover ">
-                  <img src="card2.png" className="aspect-square" alt=""/>
+                  <img src="card2.png" className="aspect-square" alt="" />
                 </div>
               </ReactBoxFlip>
             </div>
           ))}
         </div>
-        <div className="flex flex-row justify-between">
-          <ul>
-            <li>
-              <i></i>
-              <span>GitHub</span>
-            </li>
-            <li>By Sarah, Gurdeep, Sophie & Seamus</li>
-          </ul>
+        <div className="flex flex-row mt-[25vw] sm:mt-[20vw] md:mt-[17vw] lg:mt-[200px]">
+          <div className="flex flex-row">
+            <div className="flex flex-col justify-center text-center items-center">
+              <div className="">
+                <a
+                  href="https://github.com/Joanne1980/FlipCard"
+                  target="_blank"
+                  className="flex flex-row"
+                >
+                  <img src={GitHubLogo} className="w-5 h-5 mr-1" />
+                  <span>GitHub Project</span>
+                </a>
+              </div>
+              <p>By Sarah, Gurdeep, Sophie & Seamus</p>
+            </div>
+          </div>
         </div>
       </div>
     </>
