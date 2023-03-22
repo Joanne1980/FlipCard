@@ -17,7 +17,7 @@ export default function Instructions({ playGame }) {
               <div className="border-0 rounded-lg shadow-lg relative flex-col w-full bg-alt-900 outline-none focus:outline-none flex ">
                 {/*Title*/}
                 <div className="flex flex-col justify-center p-5 bg-alt-200 border-b border-solid border-alt-400 rounded-t w-full ">
-                  <h3 className="text-3xl font-bold text-center uppercase text-alt-800 pt-2">
+                  <h3 className="text-3xl font-machinaBold text-center uppercase text-alt-800 pt-2">
                     How to Play
                   </h3>
                 </div>
