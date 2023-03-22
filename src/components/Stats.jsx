@@ -138,20 +138,20 @@ export default function Stats({
                   </table>
                 </div>
                 {/*footer*/}
-                <div className="bg-gray-900 flex items-center justify-center p-6 border-t border-solid border-primary-400 rounded-b">
-                  <button
-                    className="w-3/4 bg-secondary-600 text-secondary-100 active:bg-secondary-400 font-bold text-xl uppercase px-6 pt-3 pb-2.5 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => window.location.reload(false)}
-                  >
-                    Play Again
-                  </button>
+                <div className="bg-gray-900 flex items-center justify-center p-6 border-t border-solid border-primary-400 rounded-b gap-3">
                   <button
                     className="w-3/4 bg-secondary-100 text-secondary-600 active:bg-secondary-200 font-bold text-xl uppercase px-6 pt-3 pb-2.5 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => setShowHighScores(false)}
                   >
                     Close
+                  </button>
+                  <button
+                    className="w-3/4 bg-secondary-600 text-secondary-100 active:bg-secondary-400 font-bold text-xl uppercase px-6 pt-3 pb-2.5 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => window.location.reload(false)}
+                  >
+                    Play Again
                   </button>
                 </div>
               </div>
