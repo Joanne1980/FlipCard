@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Countdown from "./Countdown";
 
-export default function Stats({showHighScores, setShowHighScores}) {
+export default function Stats({ showHighScores, setShowHighScores }) {
 
   const getHighScores = () => {
     if (localStorage.getItem("scores") !== null) {
@@ -10,23 +10,26 @@ export default function Stats({showHighScores, setShowHighScores}) {
       const scores = JSON.parse(localStorage.getItem("scores"));
 
       return scores.map((score, i) => {
-        return (
-          <tr
-            key={i}
-            class="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
-          >
-            <th
-              scope="row"
-              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+
+        if (i < 5) {
+          return (
+            <tr
+              key={i}
+              class="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
             >
-              {score.date}
-            </th>
-            <td class="px-6 py-4">
-              {Math.floor(score.score / 60)}min {score.score % 60}sec
-            </td>
-          </tr>
-        );
-      });
+              <th
+                scope="row"
+                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              >
+                {score.date}
+              </th>
+              <td class="px-6 py-4">
+                {Math.floor(score.score / 60)}min {score.score % 60}sec
+              </td>
+            </tr>
+          );
+        }
+      })
     }
   };
 
