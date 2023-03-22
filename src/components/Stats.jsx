@@ -1,11 +1,23 @@
-import React, { useState } from "react";
-import Countdown from "./Countdown";
+export default function Stats({ showHighScores, setShowHighScores, highScore }) {
 
-export default function Stats({ showHighScores, setShowHighScores }) {
+  const getCurrentScore = () => {
 
+    if (highScore) {
+      return (
+        <>
+          <div>
+            <img src="https://fastly.picsum.photos/id/529/300/200.jpg?hmac=5NWr3tx1ImTp75XEVdEicmW5ZlYYotQ3ExDHAkwz4iU" alt="Congratulations - you win"/>
+          </div>
+          <div className="relative px-10 py-6 flex-auto my-4 text-primary-100 text-lg font-semi-bold leading-relaxed">
+            <p>Your time was: {Math.floor(highScore / 60)}min {Math.floor(highScore % 60)}sec</p>
+          </div>
+        </>
+      )
+    }
+  }
   const getHighScores = () => {
     if (localStorage.getItem("scores") !== null) {
-      const scoresHtml = [];
+
 
       const scores = JSON.parse(localStorage.getItem("scores"));
 
@@ -17,18 +29,24 @@ export default function Stats({ showHighScores, setShowHighScores }) {
               key={i}
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
             >
-              <th
-                scope="row"
+              <td
+                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              >
+                {score.theme}
+              </td>
+              <td
                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
                 {score.date}
-              </th>
+                {console.log(score.date)}
+              </td>
               <td class="px-6 py-4">
-                {Math.floor(score.score / 60)}min {score.score % 60}sec
+                {Math.floor(score.score / 60)}min {Math.floor(score.score % 60)}sec
               </td>
             </tr>
           );
         }
+        return <></>;
       })
     }
   };
@@ -64,17 +82,16 @@ export default function Stats({ showHighScores, setShowHighScores }) {
                   </button>
                 </div>
                 {/*body*/}
-                {/* <div className="relative px-10 py-6 flex-auto my-4 text-primary-100 text-lg font-semi-bold leading-relaxed">
-                  <p>Your time was:</p>
-                </div> */}
-                <div>
-                  <img src="https://fastly.picsum.photos/id/529/300/200.jpg?hmac=5NWr3tx1ImTp75XEVdEicmW5ZlYYotQ3ExDHAkwz4iU" />
-                </div>
+                {/* Show players current score*/}
+                {getCurrentScore()}
                 <div>
                   {/* <h3 className="px-5">High Scores</h3> */}
                   <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead>
                       <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                        <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          Theme
+                        </th>
                         <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                           Date
                         </th>

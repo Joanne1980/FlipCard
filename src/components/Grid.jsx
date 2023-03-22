@@ -12,11 +12,9 @@ import axios from "axios";
 //Unsplash API Secret key
 //U9QL51xlhb71F5eVTpwuwCJ8tXGOfwQhKq7TWT3HAE8
 
-export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighScores }) {
+export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighScores, startTime, setStartTime,highScore, setHighScore }) {
   const image = theme;
   const clientId = "CY-iFrJXI04rurx8QvIQCDecckeftZv1kL501Z-hrUw";
-
-  const [timer, setTimer] = useState(0);
 
   const [cardsContent, setCardsContent] = useState([]);
 
@@ -52,6 +50,7 @@ export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighSco
         setGameLoaded(true);
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps  
   }, [theme]);
 
   useEffect(() => {
@@ -70,6 +69,9 @@ export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighSco
         setCardsContent(cardsContentCopy);
       }, 2000);
     }
+    const date = new Date();
+    setStartTime(date);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameLoaded]);
 
   function handleClick(i) {
@@ -163,10 +165,12 @@ export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighSco
         </div>
 
         <Countdown
-          timer={timer}
-          setTimer={setTimer}
           turnCounter={turnCounter}
           setShowHighScores={setShowHighScores}
+          startTime={startTime}
+          highScore={highScore}
+          setHighScore={setHighScore}
+          theme={theme}
         />
         {/* <div className="gap-y-[25vw] gap-x-[5%] w-full grid gap-y-32 gap-x-2 md:gap-y-40 md:gap-x-2 grid-rows-5 grid-cols-4 md:grid-rows-4 md:grid-cols-5"> */}
 
@@ -195,7 +199,7 @@ export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighSco
                 </div>
 
                 <div className="object-cover ">
-                  <img src="card2.png" className="aspect-square" />
+                  <img src="card2.png" className="aspect-square" alt=""/>
                 </div>
               </ReactBoxFlip>
             </div>
