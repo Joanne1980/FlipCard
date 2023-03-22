@@ -168,6 +168,7 @@ export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighSco
           startTime={startTime}
           highScore={highScore}
           setHighScore={setHighScore}
+          theme={theme}
         />
         {/* <div className="gap-y-[25vw] gap-x-[5%] w-full grid gap-y-32 gap-x-2 md:gap-y-40 md:gap-x-2 grid-rows-5 grid-cols-4 md:grid-rows-4 md:grid-cols-5"> */}
 

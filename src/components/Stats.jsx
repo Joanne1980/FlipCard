@@ -30,13 +30,19 @@ export default function Stats({ showHighScores, setShowHighScores, highScore }) 
               key={i}
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
             >
-              <th
+              <td
+                scope="row"
+                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              >
+                {score.theme}
+              </td>
+              <td
                 scope="row"
                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
                 {score.date}
                 {console.log(score.date)}
-              </th>
+              </td>
               <td class="px-6 py-4">
                 {Math.floor(score.score / 60)}min {Math.floor(score.score % 60)}sec
               </td>
@@ -88,6 +94,9 @@ export default function Stats({ showHighScores, setShowHighScores, highScore }) 
                   <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead>
                       <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                        <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          Theme
+                        </th>
                         <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                           Date
                         </th>

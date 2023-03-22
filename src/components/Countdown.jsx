@@ -6,7 +6,7 @@ To use this, call this component in a parent component
 <Countdown timer={timer} setTimer={setTimer} /> 
 */
 
-export default function Countdown({ turnCounter, setShowHighScores, startTime, highScore,setHighScore }) {
+export default function Countdown({ turnCounter, setShowHighScores, startTime, highScore,setHighScore, theme }) {
 
 
   // Format the seconds to display as minutes and seconds
@@ -47,7 +47,8 @@ export default function Countdown({ turnCounter, setShowHighScores, startTime, h
 
     let scoreToSubmit = {
       date: startTime.toLocaleString(),
-      score: highScore
+      score: highScore,
+      theme: theme
     }
 
     if (highScore !== "") {
