@@ -14,11 +14,13 @@ Flip Card was created by Gurdeep Banger, Seamus Barnett, Sophie Davis and Sarah 
 
 ## Technologies used
 React.js
-Tailwind.js
+Tailwind.js - We used the Tailwind Library for the CSS.
 React box flip
 Axios
-Unsplash
-React canvas confetti 
+Unsplash - we used the Unsplash api to provide us with the themed pictures.
+React canvas confetti - we used the confetti library to add the confetti effect once you finish the game.
+Tenor - we used the Tenor api to add a congratulations giphy when you complete the game.
+
 
 ## Licence
 MIT Licence
@@ -27,7 +29,7 @@ MIT Licence
 https://github.com/Joanne1980/FlipCard
 
 ## Deployed website
-
+https://main--fastidious-salmiakki-2e642f.netlify.app/
 
 ## Screenshots
 ![alt text](/public/Instructions.png?raw=true)
