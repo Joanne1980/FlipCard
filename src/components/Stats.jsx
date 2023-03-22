@@ -4,39 +4,42 @@ import Countdown from "./Countdown";
 export default function Stats({showHighScores, setShowHighScores}) {
 
   const getHighScores = () => {
-
-    if (localStorage.getItem('scores') !== null) {
-
+    if (localStorage.getItem("scores") !== null) {
       const scoresHtml = [];
 
-      const scores = JSON.parse(localStorage.getItem('scores'));
+      const scores = JSON.parse(localStorage.getItem("scores"));
 
       return scores.map((score, i) => {
         return (
-          <tr key={i} class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+          <tr
+            key={i}
+            class="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            >
               {score.date}
             </th>
             <td class="px-6 py-4">
-            {Math.floor(score.score / 60)}min {score.score % 60}sec    
+              {Math.floor(score.score / 60)}min {score.score % 60}sec
             </td>
           </tr>
-        )
-
-      })
-
+        );
+      });
     }
-  }
+  };
 
   return (
     <>
       <button
-        className="bg-primary-500 text-primary-200 active:bg-primary-400 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+        className="bg-primary-900 text-primary-200 active:bg-primary-400 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
         type="button"
         onClick={() => setShowHighScores(true)}
       >
-        Stats
+        Highscores
       </button>
+
       {showHighScores ? (
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -46,7 +49,7 @@ export default function Stats({showHighScores, setShowHighScores}) {
                 {/*header*/}
                 <div className="flex p-5 bg-primary-600 border-b border-solid border-primary-400 rounded-t w-full text-center ">
                   <h3 className="text-3xl font-bold uppercase text-primary-100 ">
-                    High Scores
+                    Stats
                   </h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-primary-300 opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -67,15 +70,17 @@ export default function Stats({showHighScores, setShowHighScores}) {
                 <div>
                   {/* <h3 className="px-5">High Scores</h3> */}
                   <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                  <thead>
-                  <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                    <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">Date</th>
-                    <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">Time</th>
-                  </tr>
-                </thead>
-                    <tbody>
-                    {getHighScores()}
-                    </tbody>
+                    <thead>
+                      <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                        <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          Date
+                        </th>
+                        <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          Time
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>{getHighScores()}</tbody>
                   </table>
                 </div>
                 {/*footer*/}
