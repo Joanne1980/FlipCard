@@ -146,6 +146,13 @@ export default function Stats({
                   >
                     Play Again
                   </button>
+                  <button
+                    className="w-3/4 bg-secondary-100 text-secondary-600 active:bg-secondary-200 font-bold text-xl uppercase px-6 pt-3 pb-2.5 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => setShowHighScores(false)}
+                  >
+                    Close
+                  </button>
                 </div>
               </div>
             </div>
