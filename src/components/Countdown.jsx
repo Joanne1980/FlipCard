@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 /*
 To use this, call this component in a parent component
@@ -34,7 +34,7 @@ export default function Countdown({ turnCounter, setShowHighScores, startTime, h
 
       setHighScore(seconds);
     }
-    
+  // eslint-disable-next-line react-hooks/exhaustive-deps  
   }, [turnCounter]);
   
   useEffect(()=> {
@@ -81,7 +81,7 @@ export default function Countdown({ turnCounter, setShowHighScores, startTime, h
       }
       setShowHighScores(true);
     }    
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps 
   },[highScore])
 
   // A function to sort the high scores and re-save

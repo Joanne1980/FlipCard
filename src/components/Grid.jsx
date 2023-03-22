@@ -50,6 +50,7 @@ export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighSco
         setGameLoaded(true);
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps  
   }, [theme]);
 
   useEffect(() => {
@@ -70,6 +71,7 @@ export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighSco
     }
     const date = new Date();
     setStartTime(date);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameLoaded]);
 
   function handleClick(i) {
@@ -197,7 +199,7 @@ export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighSco
                 </div>
 
                 <div className="object-cover ">
-                  <img src="card2.png" className="aspect-square" />
+                  <img src="card2.png" className="aspect-square" alt=""/>
                 </div>
               </ReactBoxFlip>
             </div>
