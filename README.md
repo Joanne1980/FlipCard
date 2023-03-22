@@ -29,5 +29,7 @@ https://github.com/Joanne1980/FlipCard
 
 
 ## Screenshots
-
-
+![alt text](/public/Instructions.png?raw=true)
+![alt text](/public/Game.png?raw=true)
+![alt text](/public/game1.png?raw=true)
+![alt text](/public/highscores.png?raw=true)
