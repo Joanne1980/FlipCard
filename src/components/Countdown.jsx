@@ -31,7 +31,7 @@ export default function Countdown({
   //let seconds = timer % 60;
 
   useEffect(() => {
-    if (turnCounter === 10) {
+    if (turnCounter === 1) {
       const now = new Date();
       const seconds = (now.getTime() - startTime.getTime()) / 1000;
 
