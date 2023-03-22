@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-import Countdown from "./Countdown";
-
 export default function Stats({ showHighScores, setShowHighScores, highScore }) {
-
 
   const getCurrentScore = () => {
 
@@ -10,7 +6,7 @@ export default function Stats({ showHighScores, setShowHighScores, highScore }) 
       return (
         <>
           <div>
-            <img src="https://fastly.picsum.photos/id/529/300/200.jpg?hmac=5NWr3tx1ImTp75XEVdEicmW5ZlYYotQ3ExDHAkwz4iU" />
+            <img src="https://fastly.picsum.photos/id/529/300/200.jpg?hmac=5NWr3tx1ImTp75XEVdEicmW5ZlYYotQ3ExDHAkwz4iU" alt="Congratulations - you win"/>
           </div>
           <div className="relative px-10 py-6 flex-auto my-4 text-primary-100 text-lg font-semi-bold leading-relaxed">
             <p>Your time was: {Math.floor(highScore / 60)}min {Math.floor(highScore % 60)}sec</p>
@@ -25,8 +21,6 @@ export default function Stats({ showHighScores, setShowHighScores, highScore }) 
 
       const scores = JSON.parse(localStorage.getItem("scores"));
 
-      const highScore = () => { }
-
       return scores.map((score, i) => {
 
         if (i < 5) {
@@ -36,13 +30,11 @@ export default function Stats({ showHighScores, setShowHighScores, highScore }) 
               class="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
             >
               <td
-                scope="row"
                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
                 {score.theme}
               </td>
               <td
-                scope="row"
                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
                 {score.date}
@@ -54,6 +46,7 @@ export default function Stats({ showHighScores, setShowHighScores, highScore }) 
             </tr>
           );
         }
+        return <></>;
       })
     }
   };
