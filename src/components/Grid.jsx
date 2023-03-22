@@ -12,7 +12,7 @@ import axios from "axios";
 //Unsplash API Secret key
 //U9QL51xlhb71F5eVTpwuwCJ8tXGOfwQhKq7TWT3HAE8
 
-export default function Grid({ theme, turnCounter, setTurnCounter }) {
+export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighScores }) {
   const image = theme;
   const clientId = "CY-iFrJXI04rurx8QvIQCDecckeftZv1kL501Z-hrUw";
 
@@ -157,6 +157,7 @@ export default function Grid({ theme, turnCounter, setTurnCounter }) {
           timer={timer}
           setTimer={setTimer}
           turnCounter={turnCounter}
+          setShowHighScores={setShowHighScores}
         />
         <div className=" w-1/2 grid m-2 gap-x-2 gap-y-36 grid-rows-4 grid-cols-5">
           {cardsContent.map((card, i) => (

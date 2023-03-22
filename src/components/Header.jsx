@@ -3,7 +3,7 @@ import Instructions from "./Instructions";
 import Stats from "./Stats";
 import axios from "axios";
 
-export default function Header() {
+export default function Header({showHighScores, setShowHighScores}) {
   return (
     <>   
       <nav className="px-2 sm:px-4 py-2.5 rounded bg-primary-600 h-13">
@@ -20,7 +20,7 @@ export default function Header() {
               <img alt="Language icon" src="././Lan-icon.png" />
             </a> */}
           </li>
-          <Stats />
+          <Stats showHighScores={showHighScores} setShowHighScores={setShowHighScores} />
         </ul>
       </nav>
     </>

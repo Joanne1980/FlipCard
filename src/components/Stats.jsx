@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import Countdown from "./Countdown";
 
-export default function Stats() {
-  const [showModal, setShowModal] = React.useState(false);
+export default function Stats({showHighScores, setShowHighScores}) {
 
   const getHighScores = () => {
-
 
     if (localStorage.getItem('scores') !== null) {
 
@@ -35,11 +33,11 @@ export default function Stats() {
       <button
         className="bg-primary-500 text-primary-200 active:bg-primary-400 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
         type="button"
-        onClick={() => setShowModal(true)}
+        onClick={() => setShowHighScores(true)}
       >
         Stats
       </button>
-      {showModal ? (
+      {showHighScores ? (
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative w-auto my-6 mx-auto max-w-3xl flex justify-center items-center">
@@ -52,7 +50,7 @@ export default function Stats() {
                   </h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-primary-300 opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                    onClick={() => setShowModal(false)}
+                    onClick={() => setShowHighScores(false)}
                   >
                     <span className="bg-transparent text-primary-400 opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
                       ×
@@ -85,7 +83,7 @@ export default function Stats() {
                   <button
                     className="text-secondary-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setShowModal(false)}
+                    onClick={() => setShowHighScores(false)}
                   >
                     Close
                   </button>

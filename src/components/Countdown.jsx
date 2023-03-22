@@ -8,7 +8,7 @@ To use this, call this component in a parent component
 <Countdown timer={timer} setTimer={setTimer} /> 
 */
 
-export default function Countdown({ timer, setTimer, turnCounter }) {
+export default function Countdown({ timer, setTimer, turnCounter, setShowHighScores }) {
   const [highScore, setHighScore] = useState("");
 
   // Format the seconds to display as minutes and seconds
@@ -44,7 +44,7 @@ export default function Countdown({ timer, setTimer, turnCounter }) {
 
     if (turnCounter === 10) {
       setHighScore(timer);
-      // return () => clearInterval(interval);
+      setShowHighScores(true);
     }
     
   }, [turnCounter]);
