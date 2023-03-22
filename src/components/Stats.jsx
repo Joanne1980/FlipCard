@@ -8,9 +8,14 @@ export default function Stats({ showHighScores, setShowHighScores, highScore }) 
 
     if (highScore) {
       return (
-        <div className="relative px-10 py-6 flex-auto my-4 text-primary-100 text-lg font-semi-bold leading-relaxed">
-          <p>Your time was: {Math.floor(highScore / 60)}min {Math.floor(highScore % 60)}sec</p>
-        </div>
+        <>
+          <div>
+            <img src="https://fastly.picsum.photos/id/529/300/200.jpg?hmac=5NWr3tx1ImTp75XEVdEicmW5ZlYYotQ3ExDHAkwz4iU" />
+          </div>
+          <div className="relative px-10 py-6 flex-auto my-4 text-primary-100 text-lg font-semi-bold leading-relaxed">
+            <p>Your time was: {Math.floor(highScore / 60)}min {Math.floor(highScore % 60)}sec</p>
+          </div>
+        </>
       )
     }
   }
@@ -86,9 +91,6 @@ export default function Stats({ showHighScores, setShowHighScores, highScore }) 
                 {/*body*/}
                 {/* Show players current score*/}
                 {getCurrentScore()}
-                <div>
-                  <img src="https://fastly.picsum.photos/id/529/300/200.jpg?hmac=5NWr3tx1ImTp75XEVdEicmW5ZlYYotQ3ExDHAkwz4iU" />
-                </div>
                 <div>
                   {/* <h3 className="px-5">High Scores</h3> */}
                   <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
