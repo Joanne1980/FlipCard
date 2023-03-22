@@ -44,7 +44,6 @@ export default function Countdown({ timer, setTimer, turnCounter, setShowHighSco
 
     if (turnCounter === 10) {
       setHighScore(timer);
-      setShowHighScores(true);
     }
     
   }, [turnCounter]);
@@ -90,7 +89,7 @@ export default function Countdown({ timer, setTimer, turnCounter, setShowHighSco
         // call the processHighScore function for re-sorting the high scores
         processHighScore()
       }
-
+      setShowHighScores(true);
     }    
 
   },[highScore])
