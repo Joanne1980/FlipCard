@@ -37,14 +37,14 @@ export default function Grid({
     "https://api.unsplash.com/search/photos?page=1&query=" +
     image +
     "&client_id=" +
-    clientId +
-    "&orientation=squarish";
+    clientId;
 
   useEffect(() => {
     let cards = [];
 
     if (image) {
       axios.get(url).then((response) => {
+        console.log(response)
         for (let i = 0; i < 10; i++) {
           const card = {
             pair: i,
@@ -196,12 +196,12 @@ export default function Grid({
                 <div
                   className={
                     card.isMatched
-                      ? "border-green-500 object-cover border-2"
-                      : "border-red-600 object-cover border-2"
+                      ? "border-green-500 object-cover border-2 aspect-square relative"
+                      : "border-red-600 object-cover border-2 aspect-square relative"
                   }
                 >
                   <img
-                    className="object-cover aspect-square"
+                    className="object-cover aspect-square absolute inset-0 w-full h-full"
                     src={card.image}
                     alt=""
                   />
