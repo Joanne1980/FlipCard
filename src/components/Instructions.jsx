@@ -49,7 +49,9 @@ export default function Instructions({ playGame }) {
                 </div>
                 {/*Theme selection*/}
                 <div className="flex flex-col justify-center border-t border-solid border-alt-400 pt-6 bg-alt-900 text-alt-300">
-                  <h2 className="text-center text-3xl">Select your theme</h2>
+                  <h2 className="text-center text-3xl">
+                    Select a pre-made theme
+                  </h2>
 
                   <div className="flex items-center justify-between p-6  rounded-b">
                     <button
@@ -100,7 +102,7 @@ export default function Instructions({ playGame }) {
                   {/*User input theme selection*/}
                   <div className="flex flex-col justify-center bg-alt-900 text-alt-300 mx-2">
                     <h2 className="text-center text-3xl">
-                      Or search your own Theme
+                      Or make your own theme
                     </h2>
 
                     <div className="flex items-center justify-between pt-2 pb-8 px-5 rounded-b">
