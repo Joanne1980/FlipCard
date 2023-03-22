@@ -152,7 +152,13 @@ export default function Grid({ theme, turnCounter, setTurnCounter }) {
   return (
     <>
       <div className="flex flex-col items-center bg-alt-800 h-[calc(100vh-70px)] p-5">
-        <div className="bg-secondary-600 flex rounded-lg w-full sm:w-4/5 lg:w-1/2 justify-center text-center pt-4 pb-1 mb-5 mt-5">
+        <div
+          className={
+            theme
+              ? "bg-secondary-600 flex rounded-lg w-full sm:w-4/5 lg:w-1/2 justify-center text-center pt-4 pb-1 mb-5 mt-5"
+              : "bg-secondary-600 flex rounded-lg w-full sm:w-4/5 lg:w-1/2 justify-center text-center  mb-5 mt-5"
+          }
+        >
           <h1 className="text-alt-100 uppercase text-6xl ">{theme}</h1>
         </div>
 
