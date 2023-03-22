@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Stats from "./Stats";
 import axios from "axios";
 
-export default function Header({showHighScores, setShowHighScores}) {
+export default function Header({showHighScores, setShowHighScores, highScore}) {
   return (
     <>
       <nav className="px-2 sm:px-4 py-2.5 rounded bg-primary-400 h-[70px] flex justify-between">
@@ -12,7 +12,7 @@ export default function Header({showHighScores, setShowHighScores}) {
             Flip Card
           </h1>
         </div>
-        <Stats showHighScores={showHighScores} setShowHighScores={setShowHighScores} />
+        <Stats showHighScores={showHighScores} setShowHighScores={setShowHighScores} highScore={highScore} />
         {/* <ul class="flex justify-end">
           <li class="mr-3"> */}
         {/* <a

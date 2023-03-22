@@ -1,13 +1,26 @@
 import React, { useState } from "react";
 import Countdown from "./Countdown";
 
-export default function Stats({ showHighScores, setShowHighScores }) {
+export default function Stats({ showHighScores, setShowHighScores, highScore }) {
 
+
+  const getCurrentScore = () => {
+
+    if (highScore) {
+      return (
+        <div className="relative px-10 py-6 flex-auto my-4 text-primary-100 text-lg font-semi-bold leading-relaxed">
+          <p>Your time was: {Math.floor(highScore / 60)}min {Math.floor(highScore % 60)}sec</p>
+        </div>
+      )
+    }
+  }
   const getHighScores = () => {
     if (localStorage.getItem("scores") !== null) {
-      const scoresHtml = [];
+
 
       const scores = JSON.parse(localStorage.getItem("scores"));
+
+      const highScore = () => { }
 
       return scores.map((score, i) => {
 
@@ -22,9 +35,10 @@ export default function Stats({ showHighScores, setShowHighScores }) {
                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
                 {score.date}
+                {console.log(score.date)}
               </th>
               <td class="px-6 py-4">
-                {Math.floor(score.score / 60)}min {score.score % 60}sec
+                {Math.floor(score.score / 60)}min {Math.floor(score.score % 60)}sec
               </td>
             </tr>
           );
@@ -64,9 +78,8 @@ export default function Stats({ showHighScores, setShowHighScores }) {
                   </button>
                 </div>
                 {/*body*/}
-                {/* <div className="relative px-10 py-6 flex-auto my-4 text-primary-100 text-lg font-semi-bold leading-relaxed">
-                  <p>Your time was:</p>
-                </div> */}
+                {/* Show players current score*/}
+                {getCurrentScore()}
                 <div>
                   <img src="https://fastly.picsum.photos/id/529/300/200.jpg?hmac=5NWr3tx1ImTp75XEVdEicmW5ZlYYotQ3ExDHAkwz4iU" />
                 </div>
