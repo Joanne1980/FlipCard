@@ -8,6 +8,8 @@ export default function Game() {
   const [theme, setTheme] = useState("");
   const [turnCounter, setTurnCounter] = useState(0);
   const [showHighScores, setShowHighScores] = React.useState(false);
+  const [startTime, setStartTime] = useState("");
+  const [highScore, setHighScore] = useState("");
 
   function playGame(chosenTheme) {
     setTheme(chosenTheme);
@@ -15,7 +17,7 @@ export default function Game() {
 
   return (
     <>
-      <Header showHighScores={showHighScores} setShowHighScores={setShowHighScores}/>
+      <Header showHighScores={showHighScores} setShowHighScores={setShowHighScores} startTime={startTime} highScore={highScore} />
       {/* <Theme theme={theme} setTheme={setTheme} playGame={playGame} /> */}
       <Instructions theme={theme} setTheme={setTheme} playGame={playGame} />
       <Grid
@@ -23,6 +25,10 @@ export default function Game() {
         setTurnCounter={setTurnCounter}
         theme={theme}
         setShowHighScores={setShowHighScores}
+        startTime={startTime}
+        setStartTime={setStartTime}
+        highScore={highScore}
+        setHighScore={setHighScore}
       />
     </>
   );
