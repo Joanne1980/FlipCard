@@ -4,7 +4,7 @@ export default function Instructions({ playGame }) {
   // Modal open/close
   const [showModal, setShowModal] = useState(true);
   // User input theme search
-  const [input, setInput] = useState("");
+  // const [input, setInput] = useState("");
 
   return (
     <>
@@ -98,7 +98,7 @@ export default function Instructions({ playGame }) {
                     </button>
                   </div>
                   {/*User input theme selection*/}
-                  <div className="flex flex-col justify-center bg-alt-900 text-alt-300 mx-2">
+                  {/* <div className="flex flex-col justify-center bg-alt-900 text-alt-300 mx-2">
                     <h2 className="text-center text-3xl">
                       Or search your own Theme
                     </h2>
@@ -124,7 +124,7 @@ export default function Instructions({ playGame }) {
                         Set Theme
                       </button>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
