@@ -6,6 +6,8 @@ module.exports = {
       fontFamily: {
         machinaBold: ["machina-bold", "sans-serif"],
         machina: ["machina", "sans-serif"],
+        slalom: ["slalom", "sans-serif"],
+        slalomBold: ["slalom-bold", "sans-serif"],
       },
       colors: {
         transparent: "transparent",

@@ -12,6 +12,16 @@
   src: url("../src/assets/fonts/NeueMachina-Regular.otf");
 }
 
+@font-face {
+  font-family: "slalom";
+  src: url("../src/assets/fonts/CASlalom-Regular.otf");
+}
+
+@font-face {
+  font-family: "slalom-bold";
+  src: url("../src/assets/fonts/CASlalom-Medium.otf");
+}
+
 @layer base {
   h1 {
     font-family: "machina-bold";
@@ -23,16 +33,22 @@
     font-family: "machina";
   }
   h4 {
-    font-family: "Helvetica Neue";
+    font-family: "machina";
   }
   h5 {
-    font-family: "Helvetica";
+    font-family: "slalom";
   }
   p {
-    font-family: "Helvetica Neue";
+    font-family: "slalom";
   }
   a {
-    font-family: "Helvetica Neue";
+    font-family: "slalom-bold";
+  }
+  button {
+    font-family: "slalom-bold";
+  }
+  * {
+    font-family: "slalom";
   }
 }
 
