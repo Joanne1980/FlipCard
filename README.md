@@ -18,6 +18,7 @@ Tailwind.js
 React box flip
 Axios
 Unsplash
+React canvas confetti 
 
 ## Licence
 MIT Licence
