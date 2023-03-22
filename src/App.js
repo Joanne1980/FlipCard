@@ -1,6 +1,6 @@
 import "./App.css";
 import Game from "./pages/Game";
-import { useState } from "react";
+
 //import Countdown from "./components/Countdown";
 
 function App() {
