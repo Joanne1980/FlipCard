@@ -151,20 +151,25 @@ export default function Grid({ theme, turnCounter, setTurnCounter }) {
 
   return (
     <>
-      <div className="flex flex-col items-center bg-alt-800 min-h-screen p-5">
-        <h2 className="text-alt-100 font-black uppercase text-4xl">{theme}</h2>
+      <div className="flex flex-col items-center bg-alt-800 h-[calc(100vh-70px)] p-5">
+        <div className="bg-secondary-600 flex rounded-lg w-full sm:w-4/5 lg:w-1/2 justify-center text-center pt-4 pb-1 mb-5 mt-5">
+          <h1 className="text-alt-100 uppercase text-6xl ">{theme}</h1>
+        </div>
+
         <Countdown
           timer={timer}
           setTimer={setTimer}
           turnCounter={turnCounter}
         />
-        <div className=" w-1/2 grid m-2 gap-x-2 gap-y-36 grid-rows-4 grid-cols-5">
+        {/* <div className="gap-y-[25vw] gap-x-[5%] w-full grid gap-y-32 gap-x-2 md:gap-y-40 md:gap-x-2 grid-rows-5 grid-cols-4 md:grid-rows-4 md:grid-cols-5"> */}
+
+        <div className="grid w-full sm:w-4/5 lg:w-1/2 xl:w-92 gap-y-[23vw] gap-x-[1vw] sm:gap-y-[19vw] sm:gap-x-[1vw] md:gap-y-[15.2vw] md:gap-x-[1vw] lg:gap-y-[10vw] lg:gap-x-[1vw] grid-rows-5 grid-cols-4 md:grid-rows-4 md:grid-cols-5">
           {cardsContent.map((card, i) => (
             <div
               key={i}
               data-cardid={i}
               data-cardpair={card.pair}
-              className="m-3"
+              className=""
               onClick={(e) => handleClick(i)}
             >
               <ReactBoxFlip isFlipped={card.isFlipped}>
@@ -188,6 +193,15 @@ export default function Grid({ theme, turnCounter, setTurnCounter }) {
               </ReactBoxFlip>
             </div>
           ))}
+        </div>
+        <div className="flex flex-row justify-between">
+          <ul>
+            <li>
+              <i></i>
+              <span>GitHub</span>
+            </li>
+            <li>By Sarah, Gurdeep, Sophie & Seamus</li>
+          </ul>
         </div>
       </div>
     </>

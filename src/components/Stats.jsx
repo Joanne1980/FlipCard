@@ -5,39 +5,38 @@ export default function Stats() {
   const [showModal, setShowModal] = React.useState(false);
 
   const getHighScores = () => {
-
-
-    if (localStorage.getItem('scores') !== null) {
-
+    if (localStorage.getItem("scores") !== null) {
       const scoresHtml = [];
 
-      const scores = JSON.parse(localStorage.getItem('scores'));
+      const scores = JSON.parse(localStorage.getItem("scores"));
 
       return scores.map((score, i) => {
         return (
-          <tr key={i} class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+          <tr
+            key={i}
+            class="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            >
               {score.date}
             </th>
-            <td class="px-6 py-4">
-              {score.score}
-            </td>
+            <td class="px-6 py-4">{score.score}</td>
           </tr>
-        )
-
-      })
-
+        );
+      });
     }
-  }
+  };
 
   return (
     <>
       <button
-        className="bg-primary-500 text-primary-200 active:bg-primary-400 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+        className="bg-primary-900 text-primary-200 active:bg-primary-400 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
         type="button"
         onClick={() => setShowModal(true)}
       >
-        Stats
+        Highscores
       </button>
       {showModal ? (
         <>
@@ -48,7 +47,7 @@ export default function Stats() {
                 {/*header*/}
                 <div className="flex p-5 bg-primary-600 border-b border-solid border-primary-400 rounded-t w-full text-center ">
                   <h3 className="text-3xl font-bold uppercase text-primary-100 ">
-                    Stats
+                    Highscores
                   </h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-primary-300 opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
