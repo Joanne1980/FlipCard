@@ -1,17 +1,41 @@
+import React, { useEffect, useState } from "react";
 import Confetti from "./Confetti";
+import axios from "axios";
 
 export default function Stats({
   showHighScores,
   setShowHighScores,
   highScore,
 }) {
+
+  const [image, setImage] = useState("");
+
+  useEffect(() => {
+    const query = "congratulations";
+    const clientKey = "AIzaSyBRnONZMSL4HwwyMm8w4yGEN9ywts8vH28";
+    const clientId = "my_test_app"
+
+
+    var search_url = "https://tenor.googleapis.com/v2/search?q=" + query + "&key=" +
+      clientKey + "&client_key=" + clientId + "&limit=10&media_filter=gif&ar_range=wide";
+
+    axios.get(search_url).then((response) => {
+      const images = response.data.results;
+      const randomImages = images.sort(() => Math.random() - 0.5);
+      const image = randomImages[0].media_formats.gif.url;
+      setImage(image)
+    });
+  }, []);
+
+
+
   const getCurrentScore = () => {
     if (highScore) {
       return (
         <>
           <div>
             <img
-              src="https://fastly.picsum.photos/id/529/300/200.jpg?hmac=5NWr3tx1ImTp75XEVdEicmW5ZlYYotQ3ExDHAkwz4iU"
+              src={image}
               alt="Congratulations - you win"
             />
           </div>
