@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import Stats from "./Stats";
-import axios from "axios";
+//import axios from "axios";
 
 export default function Header({showHighScores, setShowHighScores, highScore}) {
   return (
