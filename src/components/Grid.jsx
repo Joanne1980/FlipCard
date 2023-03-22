@@ -75,25 +75,29 @@ export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighSco
   function handleClick(i) {
     const cardsContentCopy = [...cardsContent];
 
-    // We only want to flip the card over if it's not matched
-    if (!cardsContentCopy[i].isMatched) {
-      console.log("Is not matched!");
 
-      // Flip the card
-      cardsContentCopy[i].isFlipped = !cardsContentCopy[i].isFlipped;
-      setCardsContent(cardsContentCopy);
+    if (cardsPicked.length !== 2){
 
-      let updateFlipped = cardsPicked;
-      updateFlipped.push(i);
-      setCardsPicked(updateFlipped);
+      // We only want to flip the card over if it's not matched
+      if (!cardsContentCopy[i].isMatched) {
+        console.log("Is not matched!");
 
-      // If the player has selected two cards, then check the pairs.
-      // Delay added so flip back is not instant
-      if (cardsPicked.length === 2) {
-        setTimeout(() => {
-          checkCards();
-        }, 1000);
-      }
+        // Flip the card
+        cardsContentCopy[i].isFlipped = !cardsContentCopy[i].isFlipped;
+        setCardsContent(cardsContentCopy);
+
+        let updateFlipped = cardsPicked;
+        updateFlipped.push(i);
+        setCardsPicked(updateFlipped);
+
+        // If the player has selected two cards, then check the pairs.
+        // Delay added so flip back is not instant
+        if (cardsPicked.length === 2) {
+          setTimeout(() => {
+            checkCards();
+          }, 1000);
+        }
+      } //
     }
   }
 
@@ -144,10 +148,6 @@ export default function Grid({ theme, turnCounter, setTurnCounter,setShowHighSco
     // Reset the cards picked to empty
     setCardsPicked([]);
   };
-
-  useEffect(() => {
-    console.log("Game count is: " + turnCounter);
-  }, [turnCounter]);
 
   return (
     <>
