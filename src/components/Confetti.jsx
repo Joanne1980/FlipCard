@@ -17,7 +17,8 @@ export default function Confetti() {
         particleCount: Math.floor(200 * particleRatio),
       });
   }, []);
-
+  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => fire(), []);
 
   const fire = useCallback(() => {

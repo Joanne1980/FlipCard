@@ -222,8 +222,9 @@ export default function Grid({
                   href="https://github.com/Joanne1980/FlipCard"
                   target="_blank"
                   className="flex flex-row"
+                  rel="noreferrer"
                 >
-                  <img src={GitHubLogo} className="w-5 h-5 mr-1" />
+                  <img src={GitHubLogo} className="w-5 h-5 mr-1" alt="Card flipped over" />
                   <span>GitHub Project</span>
                 </a>
               </div>
