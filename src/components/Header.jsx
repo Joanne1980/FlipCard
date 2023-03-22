@@ -12,7 +12,7 @@ export default function Header({showHighScores, setShowHighScores}) {
             Flip Card
           </h1>
         </div>
-        <Stats />
+        <Stats showHighScores={showHighScores} setShowHighScores={setShowHighScores} />
         {/* <ul class="flex justify-end">
           <li class="mr-3"> */}
         {/* <a
