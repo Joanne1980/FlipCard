@@ -1,31 +1,27 @@
 import React, { useState } from "react";
 
-export default function Instructions({ theme, setTheme, playGame }) {
-  const [showModal, setShowModal] = React.useState(true);
+export default function Instructions({ playGame }) {
+  // Modal open/close
+  const [showModal, setShowModal] = useState(true);
+  // User input theme search
   const [input, setInput] = useState("");
 
   return (
     <>
-      {/* <button
-        className="bg-alt-500 text-alt-200 active:bg-alt-400 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-        type="button"
-        onClick={() => setShowModal(true)}
-      >
-        ?
-      </button> */}
       {showModal ? (
         <>
+          {/*Modal Wrapper*/}
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative w-auto my-6 mx-auto max-w-3xl flex justify-center items-center">
-              {/*content*/}
+              {/*Content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex-col w-full bg-alt-900 outline-none focus:outline-none flex ">
-                {/*header*/}
+                {/*Title*/}
                 <div className="flex flex-col justify-center p-5 bg-alt-200 border-b border-solid border-alt-400 rounded-t w-full ">
                   <h3 className="text-3xl font-bold text-center uppercase text-alt-800 pt-2">
                     How to Play
                   </h3>
                 </div>
-                {/*body*/}
+                {/*Instructions*/}
                 <div className="relative px-10 py-6 flex-auto my-4 text-alt-100 text-lg font-semi-bold leading-relaxed">
                   <ol className="list-disc pl-3">
                     <li>Choose a theme for your playing cards.</li>
@@ -51,7 +47,7 @@ export default function Instructions({ theme, setTheme, playGame }) {
                     </li>
                   </ol>
                 </div>
-                {/*footer*/}
+                {/*Theme selection*/}
                 <div className="flex flex-col justify-center border-t border-solid border-alt-400 pt-6 bg-alt-900 text-alt-300">
                   <h2 className="text-center text-3xl">Select your theme</h2>
 
@@ -101,7 +97,8 @@ export default function Instructions({ theme, setTheme, playGame }) {
                       Fire
                     </button>
                   </div>
-                  {/* <div className="flex flex-col justify-center bg-alt-900 text-alt-300 mx-2">
+                  {/*User input theme selection*/}
+                  <div className="flex flex-col justify-center bg-alt-900 text-alt-300 mx-2">
                     <h2 className="text-center text-3xl">
                       Or search your own Theme
                     </h2>
@@ -127,7 +124,7 @@ export default function Instructions({ theme, setTheme, playGame }) {
                         Set Theme
                       </button>
                     </div>
-                  </div> */}
+                  </div>
                 </div>
               </div>
             </div>
