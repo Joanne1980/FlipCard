@@ -32,7 +32,6 @@ https://github.com/Joanne1980/FlipCard
 https://flip-card04.netlify.app/
 
 ## Screenshots
-![alt text](/public/Instructions.png?raw=true)
-![alt text](/public/Game.png?raw=true)
-![alt text](/public/game1.png?raw=true)
-![alt text](/public/highscores.png?raw=true)
+![alt text](https://user-images.githubusercontent.com/117310251/227307074-b0e1cd16-5eea-492d-940d-8407b71519d5.png)
+![alt text](https://user-images.githubusercontent.com/117310251/227307108-ece42e05-4c09-42c3-a643-c5da6d60b8)
+![alt text](https://user-images.githubusercontent.com/117310251/227307122-9f291e31-1a19-4629-a2fa-fbebbd5f0a72.png)
