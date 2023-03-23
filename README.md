@@ -35,3 +35,6 @@ https://flip-card04.netlify.app/
 ![alt text](https://user-images.githubusercontent.com/117310251/227307074-b0e1cd16-5eea-492d-940d-8407b71519d5.png)
 ![alt text](https://user-images.githubusercontent.com/117310251/227308505-d79a5ad9-20ec-4fb0-9284-af9e2927ed7b.png)
 ![alt text](https://user-images.githubusercontent.com/117310251/227307122-9f291e31-1a19-4629-a2fa-fbebbd5f0a72.png)
+
+## Presentation
+https://www.canva.com/design/DAFd9NiE-hU/KhygbBLaf6U-EFL5cpuUWw/edit
